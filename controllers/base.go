@@ -26,12 +26,12 @@ func (p *baseController) Prepare(){
 }
 
 //用来做跳转的逻辑展示
-func (p *baseController) History(msg string, url string)  {
-	if url=="" {
+func (p *baseController) History(msg string, url string) {
+	if url == ""{
 		p.Ctx.WriteString("<script>alert('"+msg+"');window.history.go(-1);</script>")
 		p.StopRun()
-	}else {
-		p.Redirect(url,200)
+	}else{
+		p.Redirect(url,302)
 	}
 }
 

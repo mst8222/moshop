@@ -4,6 +4,7 @@ import (
 	"moshop/models"
 	"moshop/util"
 	"strings"
+	"fmt"
 )
 
 type AdminController struct {
@@ -14,6 +15,7 @@ func (c *AdminController) Login() {
 	if c.Ctx.Request.Method == "POST" {
 		username := c.GetString("adusername")
 		password := c.GetString("adpasswd")
+		fmt.Println(username+":"+password)
 		admin := models.Admin{Adusername:username}
 		c.o.Read(&admin,"adusername")
 		if admin.Adpasswd == "" {
