@@ -19,7 +19,8 @@ func Init(){
 	fmt.Println(dsn)
 	orm.RegisterDriver("mysql", orm.DRMySQL)
 	orm.RegisterDataBase("default", "mysql", dsn)
-	orm.RegisterModel(new(User),new(Admin))
+	//orm.RunSyncdb("default", false, true)
+	orm.RegisterModel(new(User),new(Admin), new(Address),new(Area),new(Busipartner))
 }
 
 //返回带前缀的表名

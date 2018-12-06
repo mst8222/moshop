@@ -18,6 +18,7 @@ func (p *baseController) Prepare(){
 	p.controllerName = strings.ToLower(controllerName[0:len(controllerName)-10])
 	p.actionName = strings.ToLower(actionName)
 	p.o = orm.NewOrm()
+
 	//if strings.ToLower(p.controllerName)=="admin" && strings.ToLower(p.actionName)=="login" {
 	//	if p.GetSession("admin")==nil {
 	//		p.History("未登录","/login")

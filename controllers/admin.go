@@ -27,14 +27,21 @@ func (c *AdminController) Login() {
 		if _,err :=c.o.Update(&admin);err !=nil {
 			c.History("登录异常","")
 		}else {
-			c.History("登录成功","/")
+			c.History("登录成功","admin/")
 		}
 		c.SetSession("admin",admin)
 	}
-	c.TplName = "login.tpl"
+	c.TplName = "admin/login.tpl"
 }
 
 //主页
 func (c *AdminController) Main(){
-	c.TplName = "index.tpl"
+	mp := make(map[string]string)
+	mp["title"] = "控制台"
+	c.Data["m"] = mp
+
+	c.Layout = "admin/layout.tpl"
+	c.LayoutSections = make(map[string]string)
+	c.LayoutSections["Menu"] = "admin/menu.tpl"
+	c.TplName = "admin/index.tpl"
 }

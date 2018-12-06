@@ -6,7 +6,7 @@
     <link rel="icon" type="image/png" href="/static/img/favicon.png" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge" >
 
-    <title>Amaze - Bootstrap Admin Dashboard Template</title>
+    <title>MoShop社区团购电商后台登录</title>
 
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' name='viewport' >
     <meta name="viewport" content="width=device-width" >
@@ -29,19 +29,6 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-primary navbar-transparent navbar-absolute">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href=" ../index.html ">Amaze Admin</a>
-            </div>
-        </div>
-    </nav>
     <div class="wrapper wrapper-full-page">
         <div class="full-page login-page"  data-color="blue">
             <!--   you can change the color of the filter page using: data-color="blue | purple | green | orange | red | rose " -->
@@ -50,43 +37,25 @@
                     <div class="row">
                         <div class="col-md-4 col-sm-6 col-md-offset-4 col-sm-offset-3">
 
-                            <form method="#" action="#">
+                            <form method="post" action="/login">
                                 <div class="card card-login card-hidden">
                                     <div class="header text-center">
                                         <h3 class="title">Login</h3>
                                     </div>
                                     <div class="content">
-
-                                        <div class="social-line text-center">
-                                        	<h5>Connect Using</h5>
-                                        	</br>
-                                            <a href="#btn" class="btn btn-just-icon btn-default">
-                                                <i class="fa fa-facebook-square"></i>
-                                            </a>
-                                            <a href="#pablo" class="btn btn-just-icon btn-default">
-                                                <i class="fa fa-twitter"></i>
-                                            </a>
-                                            <a href="#eugen" class="btn btn-just-icon btn-default">
-                                                <i class="fa fa-google-plus"></i>
-                                            </a>
-                                        </div>
-										<span class="or-rule">or</span>
-										<h5 class="text-center">Amaze Account</h5>
                                         <div class="form-group">
-                                            <label>Email address</label>
-                                            <input type="email" placeholder="Enter email" class="form-control input-no-border">
+                                            <label>用户名</label>
+                                            <input type="username" placeholder="Username" class="form-control input-no-border" name="adusername">
                                         </div>
                                         <div class="form-group">
-                                            <label>Password</label>
-                                            <input type="password" placeholder="Password" class="form-control input-no-border">
+                                            <label>密&nbsp;&nbsp;码</label>
+                                            <input type="password" placeholder="Password" class="form-control input-no-border" name="adpasswd">
                                         </div>
                                     </div>
                                     <div class="text-center">
-                                        <button type="submit" class="btn btn-rose btn-wd btn-lg">Sign In</button>
-                                        <p>New to Amaze?&nbsp;&nbsp;
-                                        	<a href="register.html">
-                            					<i class="ti-id-badge"></i> Register
-                        					</a>
+                                        <button type="submit" class="btn btn-rose btn-wd btn-lg">登 录</button>
+                                        <p style="font-size: 14px; margin-top: 10px">
+                                            忘记密码? 请联系管理员
                         				</p>
 
                                     </div>
@@ -98,36 +67,12 @@
             </div>
             <footer class="footer">
                 <div class="container-fluid">
-                    <nav class="pull-left">
-                        <ul>
-                            <li>
-                                <a href="#">
-                                    Home
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    Company
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    Portfolio
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    Blog
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
                     <p class="copyright pull-right">
                         &copy;
                         <script>
                             document.write(new Date().getFullYear())
                         </script>
-                        <a href="http://www.17sucai.com/">Amaze Admin</a>
+                        千乘互动（北京）科技有限公司
                     </p>
                 </div>
             </footer>
