@@ -3,7 +3,7 @@ package models
 import (
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/orm"
-	"fmt"
+	//"fmt"
 )
 
 func Init(){
@@ -16,11 +16,11 @@ func Init(){
 		dbport = "3306"
 	}
 	dsn := dbuser + ":" + dbpassword + "@tcp(" + dbhost + ":" + dbport + ")/" + dbname + "?charset=utf8&loc=Asia%2FShanghai"
-	fmt.Println(dsn)
+	//fmt.Println(dsn)
 	orm.RegisterDriver("mysql", orm.DRMySQL)
 	orm.RegisterDataBase("default", "mysql", dsn)
 	//orm.RunSyncdb("default", false, true)
-	orm.RegisterModel(new(User),new(Admin), new(Address),new(Area),new(Busipartner),new(Category))
+	orm.RegisterModel(new(User),new(Admin), new(Address),new(Area),new(Busipartner),new(Category), new(Attribute),new(Brand),new(Goods),new(GoodsAttr),new(GoodsGallery),new(Products),new(VolumePrice))
 }
 
 //返回带前缀的表名
