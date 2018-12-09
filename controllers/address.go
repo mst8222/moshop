@@ -4,6 +4,7 @@ import (
 	"moshop/models"
 	"fmt"
 	"strconv"
+	"moshop/util"
 )
 
 type AddressController struct {
@@ -20,16 +21,42 @@ func (c *AddressController) Index() {
 
 	var (
 		page       int
-		pagesize   int = 8
+		pagesize   int = 10
 		offset     int
 		list       [] *models.Address
 		keyword    string
-		cateId 	   int
-	)
+		areacode   string
 
-	addresses := [] *models.Address{}
-	c.o.QueryTable( new(models.Address).TableName()).OrderBy("-addressid").All(&addresses)
-	c.Data["addresses"] = addresses
+		//cateId 	   int
+	)
+	keyword = c.GetString("addressname")
+	areacode = c.GetString("areacode")
+
+	if page, _ = c.GetInt("page"); page < 1 {
+		page = 1
+	}
+	offset = (page - 1) * pagesize
+	query := c.o.QueryTable(new(models.Address).TableName())
+	if keyword != "" {
+		query = query.Filter("addressname", keyword)
+	}
+	if areacode != "" {
+		query = query.Filter("areacode", areacode)
+	}
+	count, _ := query.Count()
+	if count > 0 {
+		query.OrderBy("-addressid").Limit(pagesize, offset).All(&list)
+	}
+	c.Data["addressname"] = keyword
+	c.Data["areacode"] = areacode
+	c.Data["count"] = count
+	c.Data["list"] = list
+	c.Data["pagebar"] = util.NewPager(page, int(count), pagesize,
+		fmt.Sprintf("/admin/address?addressname=%s", keyword), true).ToString()
+
+	//addresses := [] *models.Address{}
+	//c.o.QueryTable( new(models.Address).TableName()).OrderBy("-addressid").All(&addresses)
+	//c.Data["addresses"] = addresses
 
 	c.Layout = "admin/layout.tpl"
 	c.LayoutSections = make(map[string]string)

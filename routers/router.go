@@ -16,5 +16,12 @@ func init() {
 	beego.Router("admin/address/delete", &controllers.AddressController{},"*:Delete")
 
 	beego.Router("admin/area/select", &controllers.AreaController{},"*:Select")
+
+	beego.Router("admin/category", &controllers.CategoryController{},"*:Index")
+	beego.Router("admin/category/create", &controllers.CategoryController{},"*:Create")
+	beego.Router("admin/category/update", &controllers.CategoryController{},"*:Update")
+	beego.Router("admin/category/save", &controllers.CategoryController{},"*:Save")
+	beego.Router("admin/category/delete", &controllers.CategoryController{},"*:Delete")
+	beego.Router("admin/category/select", &controllers.CategoryController{},"*:Select")
     //beego.AutoRouter(&controllers.AdminController{})
 }

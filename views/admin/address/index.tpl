@@ -47,11 +47,11 @@
                             });
                         });
                     </script>
-                    <form id="w0" action="/admin/address/index" method="get">
+                    <form id="w0" action="/admin/address" method="get">
 
                         <div class="form-group field-addresssearch-addressname">
-                            <label class="control-label" for="addresssearch-addressname">点位名称</label>
-                            <input type="text" id="addresssearch-addressname" class="form-control" name="addressname">
+                            <label class="control-label" for="addresssearch-addressname">社区名称</label>
+                            <input type="text" id="addresssearch-addressname" class="form-control" name="addressname" value="{{.addressname}}">
 
                             <div class="help-block"></div>
                         </div>
@@ -90,20 +90,18 @@
                     <a class="btn btn-success" href="/admin/address/create">添加社区</a>
                 </p>
 
-                <div id="w1" class="grid-view"><div class="summary">第<b>1-20</b>条，共<b>3,661</b>条数据.</div>
+                <div id="w1" class="grid-view"><div class="summary">共<b>{{.count}}</b>条数据.</div>
                     <table class="table table-striped table-bordered"><thead>
                     <tr><th>点位ID</th><th>点位名称</th><th>所属地区</th><th>详细地址</th><th>点位类型</th><th>是否加盟社区</th><th>是否默认</th><th class="action-column">操作</th></tr>
                     </thead>
                         <tbody>
-        {{range $key, $val := .addresses}}
+        {{range $key, $val := .list}}
         <tr data-key="{{$val.Addressid}}"><td>{{$val.Addressid}}</td><td>{{$val.Addressname}}</td><td>{{$val.Areacode}}</td><td>{{$val.Addressdetail}}</td><td>{{$val.Addresstype}}</td><td>{{$val.Partnerid}}</td><td>{{$val.Isdefault}}</td><td><a href="/admin/address/update?id={{$val.Addressid}}" title="修改地区">修改</a> <a href="/admin/address/delete?id={{$val.Addressid}}" title="删除地区" data-confirm="确定删除?" data-method="post">删除</a></td></tr>
         {{end}}
 
                         </tbody></table>
-                    <ul class="pagination"><li class="prev disabled"><span>&laquo;</span></li>
-                        <li class="active"><a href="/area/index?page=1" data-page="0">1</a></li>
-                        <li><a href="/area/index?page=2" data-page="1">2</a></li>
-                        <li><a href="/area/index?page=3" data-page="2">3</a></li>
-                        <li class="next"><a href="/area/index?page=2" data-page="1">&raquo;</a></li></ul></div>        </div>
+                    {{str2html .pagebar}}
+                </div>
+            </div>
         </div>
     </div>

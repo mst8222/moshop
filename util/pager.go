@@ -79,32 +79,37 @@ func (this *Pager) ToString() string {
 		}
 	}
 
+	buf.WriteString("<ul class=\"pagination\">")
+
 	if this.Page > 1 {
-		buf.WriteString(fmt.Sprintf("<a class=\"layui-laypage-prev\" href=\"%s\">上一页</a></li>", this.url(this.Page-1)))
+		buf.WriteString(fmt.Sprintf("<li><a class=\"layui-laypage-prev\" href=\"%s\">上一页</a></li>", this.url(this.Page-1)))
 	} else {
-		buf.WriteString("<span>上一页</span>")
+		buf.WriteString("<li class=\"prev disabled\"><span>上一页</span></li>")
 	}
 
 	if this.Page > linknum {
-		buf.WriteString(fmt.Sprintf("<a href=\"%s\" class=\"laypage_first\">1...</a>", this.url(1)))
+		buf.WriteString(fmt.Sprintf("<li><a href=\"%s\" class=\"laypage_first\">1...</a></li>", this.url(1)))
 	}
 
 	for i := from; i <= to; i++ {
 		if i == this.Page {
-			buf.WriteString(fmt.Sprintf("<span class=\"layui-laypage-curr\"><em class=\"layui-laypage-em\"></em><em>%d</em></span>", i))
+			buf.WriteString(fmt.Sprintf("<li class=\"active\"><span>%d</span></li>", i))
 		} else {
-			buf.WriteString(fmt.Sprintf("<a href=\"%s\">%d</a>", this.url(i), i))
+			buf.WriteString(fmt.Sprintf("<li><a href=\"%s\">%d</a></li>", this.url(i), i))
 		}
 	}
 
 	if totalpage > to {
-		buf.WriteString(fmt.Sprintf("<a class=\"layui-laypage-last\" href=\"%s\">末页</a>", this.url(totalpage)))
+		buf.WriteString(fmt.Sprintf("<li><a class=\"layui-laypage-last\" href=\"%s\">末页</a></li>", this.url(totalpage)))
 	}
 
 	if this.Page < totalpage {
-		buf.WriteString(fmt.Sprintf("<a class=\"layui-laypage-next\" href=\"%s\">下一页</a></li>", this.url(this.Page+1)))
+		buf.WriteString(fmt.Sprintf("<li><a class=\"layui-laypage-next\" href=\"%s\">下一页</a></li>", this.url(this.Page+1)))
 	} else {
-		buf.WriteString(fmt.Sprintf("<span>下一页</span>"))
+		buf.WriteString(fmt.Sprintf("<li class=\"next disabled\"><span>下一页</span></li>"))
 	}
+
+	buf.WriteString("</ul>")
+
 	return buf.String()
 }

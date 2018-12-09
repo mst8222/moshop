@@ -15,7 +15,6 @@ type Address struct {
 	Addresstype string
 	Partnerid int
 	Isdefault int
-
 }
 
 func (m* Address) TableName() string {
