@@ -9,7 +9,13 @@ package models
 //`is_show` tinyint(1) unsigned NOT NULL DEFAULT '1',
 
 type Brand struct {
-
+	Brand_id int `orm:"column(brand_id);pk"` // 设置主键
+	Brand_name string
+	Brand_logo string
+	Brand_desc string
+	Site_url string
+	Sort_order int
+	Is_show int
 }
 
 func (m* Brand) TableName() string {

@@ -7,6 +7,11 @@ package models
 //`product_number` mediumint(8) unsigned DEFAULT '0',
 
 type Products struct {
+	Product_id int `orm:"column(product_id);pk"` // 设置主键
+	Goods_id int
+	Goods_attr string
+	Product_sn string
+	Product_number int
 
 }
 

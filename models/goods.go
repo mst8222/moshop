@@ -44,9 +44,51 @@ package models
 //`rank_integral` int(11) NOT NULL DEFAULT '-1',
 //`suppliers_id` smallint(5) unsigned DEFAULT NULL,
 //`is_check` tinyint(1) unsigned DEFAULT NULL,
-
 type Goods struct {
-
+	Goods_id int `orm:"column(goods_id);pk"` // 设置主键
+	Cat_id int
+	Goods_sn string
+	Goods_name string
+	Goods_name_style string
+	Click_count int
+	Brand_id int
+	Provider_name string
+	Goods_number int
+	Goods_weight float64
+	Market_price float64
+	Virtual_sales int
+	Shop_price float64
+	Promote_price float64
+	Promote_start_date int
+	Promote_end_date int
+	Warn_number int
+	Keywords string
+	Goods_brief string
+	Goods_desc string
+	Goods_thumb string
+	Goods_img string
+	Original_img string
+	Is_real int
+	Extension_code string
+	Is_on_sale int
+	Is_alone_sale int
+	Is_shipping int
+	Integral int
+	Add_time int
+	Sort_order int
+	Is_delete int
+	Is_best int
+	Is_new int
+	Is_hot int
+	Is_promote int
+	Bonus_type_id int
+	Last_update int
+	Goods_type int
+	Seller_note string
+	Give_integral int
+	Rank_integral int
+	Suppliers_id int
+	Is_check int
 }
 
 func (m* Goods) TableName() string {
