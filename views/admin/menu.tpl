@@ -37,6 +37,9 @@
                             <a href="/admin/category">商品分类</a>
                         </li>
                         <li>
+                            <a href="/admin/brand">商品品牌</a>
+                        </li>
+                        <li>
                             <a href="/admin/goods">商品管理</a>
                         </li>
                     </ul>

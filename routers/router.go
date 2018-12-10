@@ -23,5 +23,11 @@ func init() {
 	beego.Router("admin/category/save", &controllers.CategoryController{},"*:Save")
 	beego.Router("admin/category/delete", &controllers.CategoryController{},"*:Delete")
 	beego.Router("admin/category/select", &controllers.CategoryController{},"*:Select")
+
+	beego.Router("admin/goods", &controllers.GoodsController{},"*:Index")
+	beego.Router("admin/goods/create", &controllers.GoodsController{},"*:Create")
+	beego.Router("admin/goods/update", &controllers.GoodsController{},"*:Update")
+	beego.Router("admin/goods/save", &controllers.GoodsController{},"*:Save")
+	beego.Router("admin/goods/delete", &controllers.GoodsController{},"*:Delete")
     //beego.AutoRouter(&controllers.AdminController{})
 }
